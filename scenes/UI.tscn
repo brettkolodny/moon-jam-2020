@@ -1,0 +1,143 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/UI_controller.gd" type="Script" id=1]
+[ext_resource path="res://assets/UI/bullet_shit.png" type="Texture" id=2]
+[ext_resource path="res://assets/UI/key.png" type="Texture" id=3]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UI_Bullet1" type="TextureRect" parent="."]
+margin_left = -56.7782
+margin_top = 29.9619
+margin_right = -2.77818
+margin_bottom = 61.9619
+rect_rotation = 135.0
+rect_pivot_offset = Vector2( 65, 32 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": "bullet"
+}
+
+[node name="UI_Bullet2" type="TextureRect" parent="."]
+margin_left = 7.22182
+margin_top = 29.9619
+margin_right = 61.2218
+margin_bottom = 61.9619
+rect_rotation = 135.0
+rect_pivot_offset = Vector2( 65, 32 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UI_Bullet3" type="TextureRect" parent="."]
+margin_left = 71.2218
+margin_top = 29.9619
+margin_right = 125.222
+margin_bottom = 61.9619
+rect_rotation = 135.0
+rect_pivot_offset = Vector2( 65, 32 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UI_Bullet4" type="TextureRect" parent="."]
+margin_left = 135.222
+margin_top = 29.9619
+margin_right = 189.222
+margin_bottom = 61.9619
+rect_rotation = 135.0
+rect_pivot_offset = Vector2( 65, 32 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UI_Bullet5" type="TextureRect" parent="."]
+margin_left = 199.222
+margin_top = 29.9619
+margin_right = 253.222
+margin_bottom = 61.9619
+rect_rotation = 135.0
+rect_pivot_offset = Vector2( 65, 32 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UI_Bullet6" type="TextureRect" parent="."]
+margin_left = 263.222
+margin_top = 29.9619
+margin_right = 317.222
+margin_bottom = 61.9619
+rect_rotation = 135.0
+rect_pivot_offset = Vector2( 65, 32 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gold_key" type="TextureRect" parent="."]
+modulate = Color( 1, 0.843137, 0, 1 )
+margin_left = 40.0
+margin_top = 96.0
+margin_right = 88.0
+margin_bottom = 160.0
+rect_rotation = -45.0
+rect_pivot_offset = Vector2( 24, 32 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="silver_key" type="TextureRect" parent="."]
+modulate = Color( 0.752941, 0.752941, 0.752941, 1 )
+margin_left = 104.0
+margin_top = 96.0
+margin_right = 152.0
+margin_bottom = 160.0
+rect_rotation = -45.0
+rect_pivot_offset = Vector2( 24, 32 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bronze_key" type="TextureRect" parent="."]
+modulate = Color( 0.803922, 0.498039, 0.196078, 1 )
+margin_left = 168.0
+margin_top = 96.0
+margin_right = 216.0
+margin_bottom = 160.0
+rect_rotation = -45.0
+rect_pivot_offset = Vector2( 24, 32 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
