@@ -121,6 +121,9 @@ func shoot():
         emit_signal("player_shot")
         get_tree().call_group("Enemy", "agro")
         get_tree().call_group("Enemy", "show_on_shot")
+    
+    if num_bullets == 0:
+        reload_gun()
         
 func reload_gun():
     if num_bullets < 6 and $ReloadTimer.is_stopped():
