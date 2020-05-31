@@ -15,7 +15,7 @@ color = Color( 0.121569, 0.121569, 0.121569, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" parent="CanvasLayer" instance=ExtResource( 2 )]
+[node name="UI" parent="CanvasLayer" instance=ExtResource( 2 )]
 
 [node name="LightningTimer" type="Timer" parent="."]
 autostart = true
@@ -30,3 +30,5 @@ speed = 200
 maskShoot = 0.8
 maskScaling = 0.96
 [connection signal="timeout" from="LightningTimer" to="LightningTimer" method="_on_LightningTimer_timeout"]
+[connection signal="player_reload" from="Player" to="CanvasLayer/UI" method="_on_Player_player_reload"]
+[connection signal="player_shot" from="Player" to="CanvasLayer/UI" method="_on_Player_player_shot"]
