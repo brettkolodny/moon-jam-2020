@@ -18,9 +18,8 @@ texture = ExtResource( 1 )
 color = Color( 0.121569, 0.121569, 0.121569, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
-[node name="Control" parent="CanvasLayer" instance=ExtResource( 2 )]
+[node name="UI" parent="CanvasLayer" instance=ExtResource( 2 )]
 
 [node name="LightningTimer" type="Timer" parent="."]
 autostart = true

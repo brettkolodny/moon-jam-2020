@@ -28,6 +28,13 @@ func _ready():
 
     
 func _process(delta):
+    if alpha_level > 0.1:
+        alpha_level *= alpha_fade
+    else :
+        alpha_level = 0
+        
+    modulate = Color(1,1,1,alpha_level)
+    
     if dead:
         return
         
@@ -42,12 +49,6 @@ func _process(delta):
     elif player:
         if !agressive and position.distance_to(player.global_position) < agro_distance:
             get_tree().call_group("Enemy", "agro")
-    
-    if alpha_level > 0.1:
-        alpha_level *= alpha_fade
-    else :
-        alpha_level = 0
-    modulate = Color(1,1,1,alpha_level)
     
     if position.distance_to(player.global_position) < 100:
         make_visible()
