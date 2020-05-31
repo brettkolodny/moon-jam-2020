@@ -50,6 +50,7 @@ func _process(delta):
         if !agressive and position.distance_to(player.global_position) < agro_distance:
             get_tree().call_group("Enemy", "agro")
     
+
     if position.distance_to(player.global_position) < 100:
         make_visible()
 

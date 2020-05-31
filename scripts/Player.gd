@@ -10,13 +10,30 @@ var play_backwards: bool
 var can_shoot := true
 var dead := true
 var shrinking = false
+
 var num_bullets := 6
+
 
 signal player_shot
 signal player_reload
 
 func _ready():
+
     set_meta("type", "player")
+
+func get_input():
+    velocity = Vector2()
+    
+    if Input.is_action_pressed('ui_right'):
+        velocity.x += 1
+    if Input.is_action_pressed('ui_left'):
+        velocity.x -= 1
+    if Input.is_action_pressed('ui_down'):
+        velocity.y += 1
+    if Input.is_action_pressed('ui_up'):
+        velocity.y -= 1
+    velocity = velocity.normalized() * speed
+
 
 func _process(delta):
     if shrinking:
@@ -25,9 +42,9 @@ func _process(delta):
             $PlayerLight.texture_scale = maskStandard
             shrinking = false
             
-    var velocity = Vector2()  # The player's movement vector.
+      # The player's movement vector.
     if Input.is_action_pressed("ui_right"):
-        velocity.x += 1
+        #velocity.x += 1
         
         if $AnimatedSprite.flip_h:
             play_backwards = true
@@ -35,27 +52,23 @@ func _process(delta):
             play_backwards = false
 
     if Input.is_action_pressed("ui_left"):
-        velocity.x -= 1
+        #velocity.x -= 1
         
         if $AnimatedSprite.flip_h:
             play_backwards = false
         else:
             play_backwards = true
 
-    if Input.is_action_pressed("ui_down"):
-        velocity.y += 1
-
-    if Input.is_action_pressed("ui_up"):
-        velocity.y -= 1
-
-    if velocity.length() > 0:
-        velocity = velocity.normalized() * speed
+    if velocity != null:
+        if velocity.length() > 0:
+        #velocity = velocity.normalized() * speed
         
+
         position += velocity * delta
 
-        $AnimatedSprite.play("run", play_backwards)
-    else:
-        $AnimatedSprite.play("idle")
+            $AnimatedSprite.play("run", play_backwards)
+        else:
+            $AnimatedSprite.play("idle")
 
     if Input.is_action_just_pressed("ui_shoot_gun"):
         shoot()
@@ -92,6 +105,10 @@ func _process(delta):
             $ArmJoint/ArmSprite.flip_v = true
         
     $ArmJoint.look_at(get_global_mouse_position())
+    
+func _physics_process(delta):
+    get_input()
+    move_and_collide(velocity * delta)
     
 func shoot():
     if can_shoot and num_bullets > 0:
