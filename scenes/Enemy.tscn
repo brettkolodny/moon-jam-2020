@@ -33,6 +33,11 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "attack",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": false,
 "name": "death",
@@ -42,11 +47,6 @@ animations = [ {
 "loop": true,
 "name": "run",
 "speed": 60.0
-}, {
-"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "attack",
-"speed": 10.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -58,6 +58,7 @@ radius = 80.7062
 
 [node name="Enemy" type="Area2D"]
 position = Vector2( 187.844, 141.19 )
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
 speed = 400
 

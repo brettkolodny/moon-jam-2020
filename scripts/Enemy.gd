@@ -49,7 +49,7 @@ func _process(delta):
         alpha_level = 0
     modulate = Color(1,1,1,alpha_level)
     
-    if position.distance_to(player.global_position) < 100:
+    if position.distance_to(player.global_position) < 200:
         make_visible()
 
 func agro():

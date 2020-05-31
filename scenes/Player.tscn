@@ -55,12 +55,12 @@ height = 61.0146
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 96.5156, 88.1982 )
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
 speed = 400
 maskStandard = 0.2
 
 [node name="ArmJoint" type="Position2D" parent="."]
-editor/display_folded = true
 position = Vector2( 16, -9 )
 
 [node name="ArmSprite" type="AnimatedSprite" parent="ArmJoint"]
@@ -96,7 +96,8 @@ one_shot = true
 [node name="PlayerLight" type="Light2D" parent="."]
 texture = ExtResource( 18 )
 texture_scale = 0.2
-energy = 2.4
+energy = 0.4
+shadow_enabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
