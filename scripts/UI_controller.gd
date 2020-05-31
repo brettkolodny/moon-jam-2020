@@ -9,22 +9,24 @@ var have_gold_key = false
 func _ready():
     drawUI()
     
+    
 func key_trigger():
     #set a have_color_key to true then call the drawUI()
     pass
 
+
 func bullet_count_up():
-    #if bullet_count < 6:
-        #bullet_count += 1
-        #drawUI()
-    pass
+     if bullet_count < 6:
+        bullet_count += 1
+        drawUI()
+    
     
 func bullet_count_down():
-    #if bullet_count > 0:
-        #bullet_count -= 1
-        #drawUI()
-    pass
-    
+    if bullet_count > 0:
+        bullet_count -= 1
+        drawUI()
+   
+ 
 func drawUI():
     $UI_Bullet1.visible = false
     $UI_Bullet2.visible = false
@@ -88,3 +90,11 @@ func drawUI():
     
     if have_gold_key:
         $gold_key.modulate = Color("ffd700")
+
+
+func _on_Player_player_shot():
+    bullet_count_down()
+
+
+func _on_Player_player_reload():
+    bullet_count_up()

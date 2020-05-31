@@ -6,16 +6,16 @@ export (float) var maskStandard = 0.8
 export (float) var maskShoot = 1
 export (float) var maskScaling = 0.98
 
-var screen_size: Vector2
 var play_backwards: bool
-var can_shoot: bool = true
-var dead: bool = true
+var can_shoot := true
+var dead := true
 var shrinking = false
+var num_bullets := 6
 
 signal player_shot
+signal player_reload
 
 func _ready():
-    screen_size = get_viewport_rect().size
     set_meta("type", "player")
 
 func _process(delta):
@@ -52,8 +52,6 @@ func _process(delta):
         velocity = velocity.normalized() * speed
         
         position += velocity * delta
-        position.x = clamp(position.x, 0, screen_size.x)
-        position.y = clamp(position.y, 0, screen_size.y)
 
         $AnimatedSprite.play("run", play_backwards)
     else:
@@ -61,6 +59,9 @@ func _process(delta):
 
     if Input.is_action_just_pressed("ui_shoot_gun"):
         shoot()
+        
+    if Input.is_action_just_pressed("ui_reload_gun"):
+        reload_gun()
 
     var local_mouse_pos = get_local_mouse_position()
     
@@ -93,14 +94,16 @@ func _process(delta):
     $ArmJoint.look_at(get_global_mouse_position())
     
 func shoot():
-    if can_shoot:
+    if can_shoot and num_bullets > 0:
         can_shoot = false
+        num_bullets -= 1
         $ShotTimer.start(refactory_period)
+        
+        if !$ReloadTimer.is_stopped():
+            $ReloadTimer.stop()
         
         $PlayerLight.texture_scale = maskShoot
         shrinking = true
-        
-        emit_signal("player_shot")
         
         var mouse_vector = get_global_mouse_position()
         
@@ -115,12 +118,23 @@ func shoot():
         $ArmJoint/ArmSprite/Gunshot.frame = 0
         $ArmJoint/ArmSprite/Gunshot.play("shoot")
         
+        emit_signal("player_shot")
         get_tree().call_group("Enemy", "agro")
         get_tree().call_group("Enemy", "show_on_shot")
         
-        
+func reload_gun():
+    if num_bullets < 6 and $ReloadTimer.is_stopped():
+        $ReloadTimer.start(1)
+    
 func die():
     print("Player has died")
 
 func _on_ShotTimer_timeout():
     can_shoot = true
+
+func _on_ReloadTimer_timeout():
+    num_bullets += 1
+    emit_signal("player_reload")
+    
+    if num_bullets == 6:
+        $ReloadTimer.stop()

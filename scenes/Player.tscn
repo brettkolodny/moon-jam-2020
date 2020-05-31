@@ -108,5 +108,8 @@ DAMP_EASING = 4.0
 
 [node name="ShakeTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="ReloadTimer" type="Timer" parent="."]
 [connection signal="player_shot" from="." to="Camera2D" method="_on_Player_player_shot"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]

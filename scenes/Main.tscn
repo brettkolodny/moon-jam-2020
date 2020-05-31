@@ -33,3 +33,5 @@ speed = 200
 maskShoot = 0.8
 maskScaling = 0.96
 [connection signal="timeout" from="LightningTimer" to="LightningTimer" method="_on_LightningTimer_timeout"]
+[connection signal="player_reload" from="Player" to="CanvasLayer/UI" method="_on_Player_player_reload"]
+[connection signal="player_shot" from="Player" to="CanvasLayer/UI" method="_on_Player_player_shot"]
