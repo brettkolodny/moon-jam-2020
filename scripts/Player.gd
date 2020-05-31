@@ -10,6 +10,7 @@ var play_backwards: bool
 var can_shoot := true
 var dead := true
 var shrinking = false
+var velocity = Vector2.ZERO
 
 var num_bullets := 6
 
@@ -63,8 +64,6 @@ func _process(delta):
         if velocity.length() > 0:
         #velocity = velocity.normalized() * speed
         
-
-        position += velocity * delta
 
             $AnimatedSprite.play("run", play_backwards)
         else:
