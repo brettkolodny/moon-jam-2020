@@ -13,6 +13,7 @@
 position = Vector2( 4.42603, -4.42603 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2( -66.9662, -150.674 )
 color = Color( 0.0742188, 0.0742188, 0.0742188, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
