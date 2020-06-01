@@ -74,6 +74,7 @@ func show_on_shot():
 
 func die():
     $AnimatedSprite.play("death")
+    $DeathSound.play()
     dead = true
     $CollisionShape2D.disabled = true
     $DeleteTimer.start(5)
