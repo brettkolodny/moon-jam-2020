@@ -2,8 +2,8 @@ extends Area2D
 
 export var speed = 200
 export var agro_distance = 100
-export var max_agro_distance = 1000
-export var attack_distance = 100
+export var max_agro_distance = 300
+export var attack_distance = 60
 export (float) var alpha_fade = .95
 
 
@@ -85,7 +85,6 @@ func attack():
     $AttackSound.play()
 
 func make_visible():
-    #print("added alpha")
     alpha_level = 2    
 
 func _on_DeleteTimer_timeout():
