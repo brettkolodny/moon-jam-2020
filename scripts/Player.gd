@@ -19,8 +19,8 @@ signal player_shot
 signal player_reload
 
 func _ready():
-
     set_meta("type", "player")
+
 
 func get_input():
     velocity = Vector2()
@@ -104,16 +104,20 @@ func _process(delta):
             $ArmJoint/ArmSprite.flip_v = true
         
     $ArmJoint.look_at(get_global_mouse_position())
-    
+
+
 func _physics_process(delta):
     get_input()
     move_and_collide(velocity * delta)
+    
     
 func shoot():
     if can_shoot and num_bullets > 0:
         can_shoot = false
         num_bullets -= 1
         $ShotTimer.start(refactory_period)
+        
+        $GunShotSound.play()
         
         if !$ReloadTimer.is_stopped():
             $ReloadTimer.stop()
@@ -140,19 +144,24 @@ func shoot():
     
     if num_bullets == 0:
         reload_gun()
-        
+
+
 func reload_gun():
     if num_bullets < 6 and $ReloadTimer.is_stopped():
         $ReloadTimer.start(1)
-    
+
+
 func die():
     print("Player has died")
-
+    
+    
 func _on_ShotTimer_timeout():
     can_shoot = true
+    
 
 func _on_ReloadTimer_timeout():
     num_bullets += 1
+    $ReloadSound.play()
     emit_signal("player_reload")
     
     if num_bullets == 6:
