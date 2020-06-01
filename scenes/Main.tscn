@@ -27,9 +27,6 @@ color = Color( 0.117188, 0.117188, 0.117188, 1 )
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 2 )]
 margin_left = -3.4248
 margin_right = -3.4248
-have_bronze_key = true
-have_silver_key = true
-have_gold_key = true
 
 [node name="LightningTimer" type="Timer" parent="."]
 autostart = true
