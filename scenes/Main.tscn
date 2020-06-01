@@ -1,11 +1,20 @@
 [gd_scene load_steps=7 format=2]
 
+<<<<<<< HEAD
 [ext_resource path="res://scenes/AmbiantSounds.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/PlayTest.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/lightning_timer.gd" type="Script" id=4]
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=6]
+=======
+[ext_resource path="res://scenes/Mansion.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/lightning_timer.gd" type="Script" id=3]
+[ext_resource path="res://scenes/Key.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Door.tscn" type="PackedScene" id=6]
+>>>>>>> 2f3f459dba56f7be19606cd53924b0d0663c993b
 
 [node name="Main" type="Node"]
 
@@ -14,7 +23,12 @@
 [node name="Background" parent="." instance=ExtResource( 2 )]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+<<<<<<< HEAD
 color = Color( 0.121569, 0.121569, 0.121569, 1 )
+=======
+visible = false
+color = Color( 0.0742188, 0.0742188, 0.0742188, 1 )
+>>>>>>> 2f3f459dba56f7be19606cd53924b0d0663c993b
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -24,6 +38,7 @@ color = Color( 0.121569, 0.121569, 0.121569, 1 )
 autostart = true
 script = ExtResource( 4 )
 
+<<<<<<< HEAD
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 468.686, 221.098 )
 
@@ -35,10 +50,37 @@ position = Vector2( 818.088, 235.418 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1004.46, 715.631 )
+=======
+[node name="BronzeKey" parent="." instance=ExtResource( 4 )]
+position = Vector2( 398.999, -794.655 )
+key_color = "bronze"
+
+[node name="SilverKey" parent="." instance=ExtResource( 4 )]
+position = Vector2( 211.395, -890.932 )
+key_color = "silver"
+
+[node name="GoldKey" parent="." instance=ExtResource( 4 )]
+position = Vector2( 625.971, -874.651 )
+key_color = "gold"
+
+[node name="Door" parent="." instance=ExtResource( 6 )]
+position = Vector2( 406.744, -1003.78 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 390.515, -901.807 )
+>>>>>>> 2f3f459dba56f7be19606cd53924b0d0663c993b
 speed = 200
 maskShoot = 0.8
 maskScaling = 0.96
 [connection signal="timeout" from="LightningTimer" to="LightningTimer" method="_on_LightningTimer_timeout"]
+<<<<<<< HEAD
 [connection signal="timeout" from="LightningTimer" to="AmbiantSounds" method="_on_LightningTimer_timeout"]
+=======
+[connection signal="bronze_pickup" from="BronzeKey" to="CanvasLayer/UI" method="_on_BronzeKey_bronze_pickup"]
+[connection signal="silver_pickup" from="SilverKey" to="CanvasLayer/UI" method="_on_SilverKey_silver_pickup"]
+[connection signal="gold_pickup" from="GoldKey" to="CanvasLayer/UI" method="_on_GoldKey_gold_pickup"]
+[connection signal="body_entered" from="Door" to="CanvasLayer/UI" method="_on_Door_body_entered"]
+>>>>>>> 2f3f459dba56f7be19606cd53924b0d0663c993b
 [connection signal="player_reload" from="Player" to="CanvasLayer/UI" method="_on_Player_player_reload"]
 [connection signal="player_shot" from="Player" to="CanvasLayer/UI" method="_on_Player_player_shot"]
