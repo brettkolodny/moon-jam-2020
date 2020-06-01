@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/Mansion.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/lightning_timer.gd" type="Script" id=3]
+[ext_resource path="res://scenes/Key.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node"]
@@ -16,16 +17,33 @@ color = Color( 0.0742188, 0.0742188, 0.0742188, 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 2 )]
+margin_left = -3.4248
+margin_right = -3.4248
 
 [node name="LightningTimer" type="Timer" parent="."]
 autostart = true
 script = ExtResource( 3 )
 
+[node name="BronzeKey" parent="." instance=ExtResource( 4 )]
+position = Vector2( 441.797, -82.1947 )
+key_color = "bronze"
+
+[node name="SilverKey" parent="." instance=ExtResource( 4 )]
+position = Vector2( 30.1327, -213.717 )
+key_color = "silver"
+
+[node name="GoldKey" parent="." instance=ExtResource( 4 )]
+position = Vector2( 842.478, -222.611 )
+key_color = "gold"
+
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( -1181.34, -221.196 )
+position = Vector2( 442.006, 874.734 )
 speed = 200
 maskStandard = 1.5
 maskShoot = 5.0
 [connection signal="timeout" from="LightningTimer" to="LightningTimer" method="_on_LightningTimer_timeout"]
+[connection signal="bronze_pickup" from="BronzeKey" to="CanvasLayer/UI" method="_on_Area2D_bronze_pickup"]
+[connection signal="silver_pickup" from="SilverKey" to="CanvasLayer/UI" method="_on_SilverKey_silver_pickup"]
+[connection signal="gold_pickup" from="GoldKey" to="CanvasLayer/UI" method="_on_GoldKey_gold_pickup"]
 [connection signal="player_reload" from="Player" to="CanvasLayer/UI" method="_on_Player_player_reload"]
 [connection signal="player_shot" from="Player" to="CanvasLayer/UI" method="_on_Player_player_shot"]

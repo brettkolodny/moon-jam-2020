@@ -98,3 +98,21 @@ func _on_Player_player_shot():
 
 func _on_Player_player_reload():
     bullet_count_up()
+
+
+func _on_Area2D_bronze_pickup():
+    have_bronze_key = true
+    drawUI()
+    pass # Replace with function body.
+
+
+func _on_SilverKey_silver_pickup():
+    have_silver_key = true
+    drawUI()
+    pass # Replace with function body.
+
+
+func _on_GoldKey_gold_pickup():
+    have_gold_key = true
+    drawUI()
+    pass # Replace with function body.

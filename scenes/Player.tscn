@@ -109,7 +109,7 @@ position = Vector2( 7.29335, -0.317108 )
 current = true
 smoothing_enabled = true
 script = ExtResource( 19 )
-amplitude = 10.0
+amplitude = 7.0
 duration = 0.8
 DAMP_EASING = 4.0
 
