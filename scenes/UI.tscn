@@ -98,7 +98,7 @@ __meta__ = {
 }
 
 [node name="gold_key" type="TextureRect" parent="."]
-modulate = Color( 1, 0.843137, 0, 1 )
+modulate = Color( 0.26416, 0.26416, 0.26416, 1 )
 margin_left = 40.0
 margin_top = 96.0
 margin_right = 88.0

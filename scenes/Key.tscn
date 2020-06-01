@@ -8,6 +8,7 @@ radius = 15.9441
 height = 19.7983
 
 [node name="Area2D" type="Area2D"]
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

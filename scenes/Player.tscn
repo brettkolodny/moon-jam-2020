@@ -121,11 +121,13 @@ one_shot = true
 [node name="GunShotSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 6.65915, -0.634201 )
 stream = ExtResource( 20 )
+volume_db = -10.0
 attenuation = 0.183011
 
 [node name="ReloadSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 9.51306, -12.367 )
 stream = ExtResource( 21 )
+volume_db = -10.0
 attenuation = 1.03526
 [connection signal="player_shot" from="." to="Camera2D" method="_on_Player_player_shot"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]

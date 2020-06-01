@@ -5,6 +5,7 @@ var have_bronze_key = false
 var have_silver_key = false
 var have_gold_key = false
 
+var key_color = Color(.25,.25,.25,1)
 
 func _ready():
     drawUI()
@@ -35,9 +36,9 @@ func drawUI():
     $UI_Bullet5.visible = false
     $UI_Bullet6.visible = false
     
-    $gold_key.modulate = Color( 0.75, 0.75, 0.75, 1 )
-    $silver_key.modulate = Color( 0.75, 0.75, 0.75, 1 )
-    $bronze_key.modulate = Color( 0.75, 0.75, 0.75, 1 )
+    $gold_key.modulate = key_color
+    $silver_key.modulate = key_color
+    $bronze_key.modulate = key_color
     
     if bullet_count == 1:
         $UI_Bullet1.visible = true
