@@ -82,6 +82,7 @@ func die():
 func attack():
     attacking = true
     $AnimatedSprite.play("attack")
+    $AttackSound.play()
 
 func make_visible():
     #print("added alpha")
