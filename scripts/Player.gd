@@ -20,6 +20,7 @@ signal player_reload
 
 func _ready():
     set_meta("type", "player")
+    $PlayerLight.texture_scale = maskStandard
 
 
 func get_input():
