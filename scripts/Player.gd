@@ -20,6 +20,7 @@ signal player_reload
 
 func _ready():
     set_meta("type", "player")
+    $PlayerLight.texture_scale = maskStandard
 
 
 func get_input():
@@ -108,7 +109,7 @@ func _process(delta):
 
 func _physics_process(delta):
     get_input()
-    move_and_collide(velocity * delta)
+    move_and_slide(velocity)
     
     
 func shoot():

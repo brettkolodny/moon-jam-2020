@@ -6,7 +6,8 @@ extends Timer
 # var b = "text"
 
 var rng = RandomNumberGenerator.new()
-var mod_color = .12
+var mod_color = .04
+var mod_target = .04
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,7 +22,7 @@ func _ready():
 #	pass
  
 func _process(delta):
-    if mod_color > .12:
+    if mod_color > mod_target:
         mod_color -= 0.005
         $"../CanvasModulate".color = Color(mod_color, mod_color, mod_color, 1)
     pass
