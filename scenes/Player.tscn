@@ -17,7 +17,7 @@
 [ext_resource path="res://assets/player/run/player_run_1.png" type="Texture" id=15]
 [ext_resource path="res://assets/player/run/player_run_4.png" type="Texture" id=16]
 [ext_resource path="res://assets/player/run/player_run_3.png" type="Texture" id=17]
-[ext_resource path="res://assets/player/misc/mask.png" type="Texture" id=18]
+[ext_resource path="res://assets/player/misc/feather_mask.png" type="Texture" id=18]
 [ext_resource path="res://scripts/camera_shake.gd" type="Script" id=19]
 [ext_resource path="res://assets/sounds/gunshot.wav" type="AudioStream" id=20]
 [ext_resource path="res://assets/sounds/gun reload.wav" type="AudioStream" id=21]
@@ -52,12 +52,12 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=4]
-radius = 15.1911
-height = 61.0146
+radius = 26.4258
+height = 5.28236
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 96.5156, 88.1982 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 1 )
 speed = 400
 maskStandard = 0.2
@@ -89,19 +89,23 @@ frames = SubResource( 3 )
 animation = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 6.10927, -1.93929 )
+position = Vector2( 7.06056, 20.5749 )
 shape = SubResource( 4 )
 
 [node name="ShotTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="PlayerLight" type="Light2D" parent="."]
+position = Vector2( 8.87885, -1.9026 )
 texture = ExtResource( 18 )
 texture_scale = 0.2
-energy = 0.4
 shadow_enabled = true
+shadow_gradient_length = 2.0
+shadow_filter = 1
+shadow_filter_smooth = 12.3
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 12.0499, -3.80522 )
 current = true
 smoothing_enabled = true
 script = ExtResource( 19 )
@@ -115,11 +119,13 @@ one_shot = true
 [node name="ReloadTimer" type="Timer" parent="."]
 
 [node name="GunShotSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 10.7815, -4.75652 )
 stream = ExtResource( 20 )
 volume_db = -10.0
 attenuation = 0.183011
 
 [node name="ReloadSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 9.83015, -3.80522 )
 stream = ExtResource( 21 )
 volume_db = -10.0
 attenuation = 1.03526

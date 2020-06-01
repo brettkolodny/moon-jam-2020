@@ -5,6 +5,7 @@ export var refactory_period: float = 0.25
 export (float) var maskStandard = 0.8
 export (float) var maskShoot = 1
 export (float) var maskScaling = 0.98
+export (float) var test = 0.98
 
 var play_backwards: bool
 var can_shoot := true

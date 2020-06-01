@@ -40,15 +40,15 @@ key_color = "gold"
 
 [node name="Door" parent="." instance=ExtResource( 6 )]
 modulate = Color( 1, 0.67451, 0.67451, 1 )
-light_mask = 0
 position = Vector2( 405.71, -999.393 )
 scale = Vector2( 4, 4 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
+light_mask = 3
 position = Vector2( 390.515, -901.807 )
 speed = 200
-maskStandard = 1.5
-maskShoot = 5.0
+maskStandard = 1.2
+maskShoot = 12.0
 [connection signal="timeout" from="LightningTimer" to="LightningTimer" method="_on_LightningTimer_timeout"]
 [connection signal="bronze_pickup" from="BronzeKey" to="CanvasLayer/UI" method="_on_BronzeKey_bronze_pickup"]
 [connection signal="silver_pickup" from="SilverKey" to="CanvasLayer/UI" method="_on_SilverKey_silver_pickup"]
