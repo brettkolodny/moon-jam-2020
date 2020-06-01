@@ -11,7 +11,7 @@
 position = Vector2( 4.42603, -4.42603 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.04, 0.04, 0.04, 1 )
+color = Color( 0.0742188, 0.0742188, 0.0742188, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -26,7 +26,6 @@ position = Vector2( -1181.34, -221.196 )
 speed = 200
 maskStandard = 1.5
 maskShoot = 5.0
-maskScaling = 0.98
 [connection signal="timeout" from="LightningTimer" to="LightningTimer" method="_on_LightningTimer_timeout"]
 [connection signal="player_reload" from="Player" to="CanvasLayer/UI" method="_on_Player_player_reload"]
 [connection signal="player_shot" from="Player" to="CanvasLayer/UI" method="_on_Player_player_shot"]

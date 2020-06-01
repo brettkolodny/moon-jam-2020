@@ -53,7 +53,7 @@ animations = [ {
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 15.1911
-height = 61.0146
+height = 17.6043
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 96.5156, 88.1982 )
@@ -89,13 +89,14 @@ frames = SubResource( 3 )
 animation = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 6.10927, -1.93929 )
+position = Vector2( 7.37767, 25.9657 )
 shape = SubResource( 4 )
 
 [node name="ShotTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="PlayerLight" type="Light2D" parent="."]
+position = Vector2( 6.97626, 0 )
 texture = ExtResource( 18 )
 texture_scale = 0.2
 shadow_enabled = true
@@ -104,6 +105,7 @@ shadow_filter = 1
 shadow_filter_smooth = 20.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 7.29335, -0.317108 )
 current = true
 smoothing_enabled = true
 script = ExtResource( 19 )
@@ -117,10 +119,12 @@ one_shot = true
 [node name="ReloadTimer" type="Timer" parent="."]
 
 [node name="GunShotSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 6.65915, -0.634201 )
 stream = ExtResource( 20 )
 attenuation = 0.183011
 
 [node name="ReloadSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 9.51306, -12.367 )
 stream = ExtResource( 21 )
 attenuation = 1.03526
 [connection signal="player_shot" from="." to="Camera2D" method="_on_Player_player_shot"]
