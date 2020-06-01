@@ -16,7 +16,7 @@ export var set_to_black = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
     rng.randomize()
-    wait_time = rng.randi_range(10,30)
+    wait_time = rng.randi_range(15,60)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

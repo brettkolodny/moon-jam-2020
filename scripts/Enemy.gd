@@ -4,7 +4,7 @@ export var speed = 200
 export var agro_distance = 100
 export var max_agro_distance = 300
 export var attack_distance = 60
-export (float) var alpha_fade = .95
+export (float) var alpha_fade = .99
 
 
 var player
@@ -28,10 +28,14 @@ func _ready():
 
     
 func _process(delta):
-    if alpha_level > 0.1:
-        alpha_level *= alpha_fade
-    else :
-        alpha_level = 0
+    if !dead:
+        if alpha_level > 0.1:
+            alpha_level *= alpha_fade
+        else :
+            alpha_level = 0
+    else:
+        alpha_level = 2
+    
         
     modulate = Color(1,1,1,alpha_level)
     
@@ -50,9 +54,10 @@ func _process(delta):
         if !agressive and position.distance_to(player.global_position) < agro_distance:
             get_tree().call_group("Enemy", "agro")
     
-
-    if position.distance_to(player.global_position) < 100:
-        make_visible()
+    #add alpha scaler via postit code
+    if position.distance_to(player.global_position) < 350 and !agressive:
+        alpha_level = 1.5 * (1 - position.distance_to(player.global_position)/350)
+        pass
 
 func agro():
     if !agressive and position.distance_to(player.global_position) < max_agro_distance and !dead:
@@ -65,12 +70,18 @@ func play_agro_sound():
     $AgroSoundTimer.start(delay)
 
 func show_on_shot():
-    $PlayerCast.look_at(player.position)
+    if position.distance_to(player.global_position) < 600:
+        make_visible()
+    #$PlayerCast.look_at(player.global_position)
     
-    var collider = $PlayerCast.get_collider()
+    #var collider = $PlayerCast.get_collider()
     
-    if collider and collider.get_meta("type", "player"):
-        make_visible()    
+   # print(player)
+    #print(collider)
+    
+    #if collider and collider == player:
+       # print("made vis")
+        #make_visible()    
 
 func die():
     $AnimatedSprite.play("death")
@@ -81,14 +92,15 @@ func die():
 
 func attack():
     attacking = true
+    make_visible()
     $AnimatedSprite.play("attack")
     $AttackSound.play()
 
 func make_visible():
-    alpha_level = 2    
+    alpha_level = 2   
 
 func _on_DeleteTimer_timeout():
-    queue_free()
+   pass
 
 
 func _on_AnimatedSprite_animation_finished():
@@ -104,9 +116,9 @@ func _on_AnimatedSprite_frame_changed():
     if $AnimatedSprite.animation == "attack":
         var frame: int = $AnimatedSprite.frame
         
-        if frame == 4:
+        if frame == 7:
             $AttackArea/CollisionShape2D.disabled = false
-        elif frame == 7:
+        elif frame == 10:
             $AttackArea/CollisionShape2D.disabled = true
 
 

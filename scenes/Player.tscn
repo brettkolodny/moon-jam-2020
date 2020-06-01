@@ -53,7 +53,7 @@ animations = [ {
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 26.4258
-height = 5.28236
+height = 57.2869
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 96.5156, 88.1982 )
@@ -89,7 +89,7 @@ frames = SubResource( 3 )
 animation = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 7.06056, 20.5749 )
+position = Vector2( 8.64609, -0.988014 )
 shape = SubResource( 4 )
 
 [node name="ShotTimer" type="Timer" parent="."]
@@ -99,6 +99,7 @@ one_shot = true
 position = Vector2( 8.87885, -1.9026 )
 texture = ExtResource( 18 )
 texture_scale = 0.2
+energy = 2.5
 shadow_enabled = true
 shadow_gradient_length = 2.0
 shadow_filter = 1

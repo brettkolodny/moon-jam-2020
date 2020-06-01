@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/player/misc/feather_mask.png" type="Texture" id=1]
+[ext_resource path="res://assets/tile map/roguelikeIndoor_transparent.png" type="Texture" id=2]
+
+[node name="Sprite" type="Sprite"]
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 357, 17, 16, 17 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -4.26163, -6.97359 )
+z_index = 10
+texture = ExtResource( 1 )
+shadow_enabled = true
