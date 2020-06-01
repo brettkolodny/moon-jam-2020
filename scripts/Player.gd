@@ -153,8 +153,7 @@ func reload_gun():
 
 
 func die():
-    print("Player has died")
-    
+    Global.goto_scene("res://scenes/Death.tscn")
     
 func _on_ShotTimer_timeout():
     can_shoot = true
