@@ -101,19 +101,36 @@ func _on_Player_player_reload():
     bullet_count_up()
 
 
-func _on_Area2D_bronze_pickup():
-    have_bronze_key = true
-    drawUI()
-    pass # Replace with function body.
-
-
 func _on_SilverKey_silver_pickup():
-    have_silver_key = true
-    drawUI()
+    if !have_silver_key:
+        print("Pick up!")
+        $KeyPickUpNoise.play()
+        have_silver_key = true
+        drawUI()
     pass # Replace with function body.
 
 
 func _on_GoldKey_gold_pickup():
-    have_gold_key = true
-    drawUI()
+    if !have_gold_key:
+        print("Pick up!")
+        $KeyPickUpNoise.play()
+        have_gold_key = true
+        drawUI()
+    pass # Replace with function body.
+
+
+func _on_BronzeKey_bronze_pickup():
+    if !have_bronze_key:
+        print("Pick up!")
+        $KeyPickUpNoise.play()
+        have_bronze_key = true
+        drawUI()
+    pass # Replace with function body.
+
+
+func _on_Door_body_entered(body):
+    if have_bronze_key and have_silver_key and have_gold_key:
+        print("winnner")
+    else :
+        print("locked")
     pass # Replace with function body.
