@@ -130,7 +130,9 @@ func _on_BronzeKey_bronze_pickup():
 
 func _on_Door_body_entered(body):
     if have_bronze_key and have_silver_key and have_gold_key:
+        $DoorOpen.play()
         print("winnner")
     else :
+        $DoorLockedNoise.play()
         print("locked")
     pass # Replace with function body.

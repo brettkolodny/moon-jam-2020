@@ -13,7 +13,6 @@
 position = Vector2( 4.42603, -4.42603 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0.0742188, 0.0742188, 0.0742188, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -39,8 +38,10 @@ position = Vector2( 625.971, -874.651 )
 key_color = "gold"
 
 [node name="Door" parent="." instance=ExtResource( 6 )]
-position = Vector2( 406.744, -1003.78 )
-scale = Vector2( 0.5, 0.5 )
+modulate = Color( 1, 0.67451, 0.67451, 1 )
+light_mask = 0
+position = Vector2( 405.71, -999.393 )
+scale = Vector2( 4, 4 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 390.515, -901.807 )

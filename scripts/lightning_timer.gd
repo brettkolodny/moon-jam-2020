@@ -8,6 +8,10 @@ extends Timer
 var rng = RandomNumberGenerator.new()
 var mod_color = .04
 var mod_target = .04
+var black_target = 0
+
+export var set_to_black = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,10 +26,14 @@ func _ready():
 #	pass
  
 func _process(delta):
-    if mod_color > mod_target:
-        mod_color -= 0.005
-        $"../CanvasModulate".color = Color(mod_color, mod_color, mod_color, 1)
-    pass
+    if !set_to_black:
+        if mod_color > mod_target:
+            mod_color -= 0.005
+            $"../CanvasModulate".color = Color(mod_color, mod_color, mod_color, 1)
+    else:
+        if mod_color > black_target:
+            mod_color -= 0.001
+            $"../CanvasModulate".color = Color(mod_color, mod_color, mod_color, 1)
 
 
 func _on_LightningTimer_timeout():
