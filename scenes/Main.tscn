@@ -24,14 +24,8 @@ script = ExtResource( 3 )
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 468.686, 221.098 )
 
-[node name="Enemy2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 431.455, 433.03 )
-
-[node name="Enemy3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 818.088, 235.418 )
-
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1004.46, 715.631 )
+position = Vector2( 1121.88, 413.485 )
 speed = 200
 maskShoot = 0.8
 maskScaling = 0.96

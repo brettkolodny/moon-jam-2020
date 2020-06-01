@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/enemy/idle/enemy_idl_0.png" type="Texture" id=2]
@@ -25,8 +25,6 @@
 [ext_resource path="res://assets/enemy/attack/enemy_attack_3.png" type="Texture" id=23]
 [ext_resource path="res://assets/enemy/attack/enemy_attack_4.png" type="Texture" id=24]
 [ext_resource path="res://assets/enemy/attack/enemy_attack_5.png" type="Texture" id=25]
-[ext_resource path="res://assets/sounds/enemy agro.wav" type="AudioStream" id=26]
-[ext_resource path="res://assets/sounds/enemy death.wav" type="AudioStream" id=27]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -34,6 +32,11 @@ animations = [ {
 "loop": true,
 "name": "idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "attack",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": false,
@@ -44,11 +47,6 @@ animations = [ {
 "loop": true,
 "name": "run",
 "speed": 60.0
-}, {
-"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ) ],
-"loop": false,
-"name": "attack",
-"speed": 10.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -87,17 +85,7 @@ disabled = true
 
 [node name="PlayerCast" type="RayCast2D" parent="."]
 cast_to = Vector2( 200, 0 )
-
-[node name="AgroSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 26 )
-
-[node name="AgroSoundTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 27 )
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
 [connection signal="timeout" from="DeleteTimer" to="." method="_on_DeleteTimer_timeout"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_AttackArea_body_entered"]
-[connection signal="timeout" from="AgroSoundTimer" to="." method="_on_AgroSoundTimer_timeout"]

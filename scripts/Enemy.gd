@@ -57,12 +57,7 @@ func _process(delta):
 func agro():
     if !agressive and position.distance_to(player.global_position) < max_agro_distance and !dead:
         $AnimatedSprite.play("run")
-        play_agro_sound()
         agressive = true
-
-func play_agro_sound():
-    var delay = rand_range(0, 1)
-    $AgroSoundTimer.start(delay)
 
 func show_on_shot():
     $PlayerCast.look_at(player.position)
@@ -74,7 +69,6 @@ func show_on_shot():
 
 func die():
     $AnimatedSprite.play("death")
-    $DeathSound.play()
     dead = true
     $CollisionShape2D.disabled = true
     $DeleteTimer.start(5)
@@ -108,7 +102,3 @@ func _on_AnimatedSprite_frame_changed():
             $AttackArea/CollisionShape2D.disabled = false
         elif frame == 7:
             $AttackArea/CollisionShape2D.disabled = true
-
-
-func _on_AgroSoundTimer_timeout():
-    $AgroSound.play()
