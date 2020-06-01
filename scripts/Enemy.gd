@@ -55,8 +55,8 @@ func _process(delta):
             get_tree().call_group("Enemy", "agro")
     
     #add alpha scaler via postit code
-    if position.distance_to(player.global_position) < 350 and !agressive:
-        alpha_level = 1.5 * (1 - position.distance_to(player.global_position)/350)
+    if position.distance_to(player.global_position) < 300 and !agressive:
+        alpha_level = 1.5 * (1 - position.distance_to(player.global_position)/300)
         pass
 
 func agro():
@@ -116,9 +116,9 @@ func _on_AnimatedSprite_frame_changed():
     if $AnimatedSprite.animation == "attack":
         var frame: int = $AnimatedSprite.frame
         
-        if frame == 7:
+        if frame == 6:
             $AttackArea/CollisionShape2D.disabled = false
-        elif frame == 10:
+        elif frame == 7:
             $AttackArea/CollisionShape2D.disabled = true
 
 

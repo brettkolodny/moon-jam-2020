@@ -1,9 +1,9 @@
 extends Control
 
 var bullet_count = 6
-var have_bronze_key = false
-var have_silver_key = false
-var have_gold_key = false
+export var have_bronze_key = false
+export var have_silver_key = false
+export var have_gold_key = false
 
 var key_color = Color(.25,.25,.25,1)
 
@@ -129,10 +129,12 @@ func _on_BronzeKey_bronze_pickup():
 
 
 func _on_Door_body_entered(body):
-    if have_bronze_key and have_silver_key and have_gold_key:
-        $DoorOpen.play()
-        print("winnner")
-    else :
-        $DoorLockedNoise.play()
-        print("locked")
+    if body.get_meta("type") == "player":
+        if have_bronze_key and have_silver_key and have_gold_key:
+            $DoorOpen.play()
+            print("winnner")
+            Global.goto_scene("res://scenes/Win.tscn")
+        else :
+            $DoorLockedNoise.play()
+            print("locked")
     pass # Replace with function body.

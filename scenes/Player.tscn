@@ -99,7 +99,6 @@ one_shot = true
 position = Vector2( 8.87885, -1.9026 )
 texture = ExtResource( 18 )
 texture_scale = 0.2
-energy = 2.5
 shadow_enabled = true
 shadow_gradient_length = 2.0
 shadow_filter = 1
