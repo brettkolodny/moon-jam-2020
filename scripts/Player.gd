@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export var speed: int = 200
-export var refactory_period: float = 0.25
+export var refactory_period: float = 0.35
 export (float) var maskStandard = 0.8
 export (float) var maskShoot = 1
 export (float) var maskScaling = 0.98
